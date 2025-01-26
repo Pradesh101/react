@@ -37,7 +37,13 @@ const TodoList = () => {
         Todo App
       </div>
       <Form createTodo={createTodo} />
-      <div className="text-white mb-2 text-xl">Todo tasks</div>
+      <div>
+        {todoValue.length !== 0 ? (
+          <div className="text-white mb-2 text-xl">Todo tasks</div>
+        ) : (
+          <div className="text-white mb-2 text-xl">No Todo Tasks</div>
+        )}
+      </div>
       {todoValue.map((todo, idx) =>
         todo.isEditing ? (
           <Edit key={idx} editTodo={editTask} task={todo} />
